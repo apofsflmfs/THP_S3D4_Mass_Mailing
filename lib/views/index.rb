@@ -30,13 +30,16 @@ class Index
       puts "1-> scrapper les emails des mairies de l'Hérault?"
       puts "2-> scrapper les emails des mairies du Gard?"
       puts "3-> scrapper les emails des mairies des Pyrénées-Atlantiques?"
+      puts
       puts "4-> Inscrire les scrap déjà faits dans un CSV?"
-      puts "5-> Envoyer des emails automatisés aux mairies à partir d'un CSV"
+      puts
+      puts "5-> Envoyer des emails automatisés aux mairies à partir du CSV créé."
+      puts
       puts "6-> Compléter le CSV avec les comptes twitter des mairies et les follow? (Nécessite un .env fonctionnel)"
       puts
       puts "99-> SORTIR"
+      puts
       print">>"
-      binding.pry
       input = gets.chomp.to_i
 
       case input
