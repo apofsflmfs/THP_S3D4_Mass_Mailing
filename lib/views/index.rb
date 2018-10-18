@@ -16,61 +16,77 @@ class Index
 
   def menu
     stay = true
-    state = []
+    state = [[1,""],[2,""],[3,""],[4,""],[5,""],[6,""]]
+    puts state[0][1] = "1-> Scrapper les emails des mairies de l'Hérault?"
+    puts state[1][1] = "2-> Scrapper les emails des mairies du Gard?"
+    puts state[2][1] = "3-> Scrapper les emails des mairies des Pyrénées-Atlantiques?"
+    puts
+    puts state[3][1] = "4-> Inscrire les scrap déjà faits dans un CSV?"
+    puts
+    puts state[4][1] = "5-> Envoyer des emails automatisés aux mairies à partir du CSV créé."
+    puts
+    puts state[5][1] = "6-> Compléter le CSV avec les comptes twitter des mairies et les follow? (Nécessite un .env fonctionnel)"
     while stay
       system "clear" or system "cls"
-      puts "Liste des tâches déjà effectuées:"
-      puts state.join(" - ")
-      puts
       puts "************"
       puts "*   MENU   *"
       puts "************"
       puts
       puts "Bonjour, quelle action souhaitez-vous effectuer?"
-      puts "1-> scrapper les emails des mairies de l'Hérault?"
-      puts "2-> scrapper les emails des mairies du Gard?"
-      puts "3-> scrapper les emails des mairies des Pyrénées-Atlantiques?"
       puts
-      puts "4-> Inscrire les scrap déjà faits dans un CSV?"
+      puts state[0][1]
+      puts state[1][1]
+      puts state[2][1]
       puts
-      puts "5-> Envoyer des emails automatisés aux mairies à partir du CSV créé."
+      puts state[3][1]
       puts
-      puts "6-> Compléter le CSV avec les comptes twitter des mairies et les follow? (Nécessite un .env fonctionnel)"
+      puts state[4][1]
+      puts
+      puts state[5][1]
       puts
       puts "99-> SORTIR"
       puts
-      print">>"
+      print">votre choix>"
       input = gets.chomp.to_i
 
       case input
-      when 1
+      when state[0][0]
         # @scrapping_array << Scrapper.new("Herault", "http://annuaire-des-mairies.com/herault.html", "34")
         
         @scrapping_array << Scrapper.new("Réunion", "https://www.annuaire-des-mairies.com/reunion.html", "974")
 
-        state[0] ="Emails de l'Hérault => scrapés"
-      when 2
+        state[0][1] = state[0][1][4..-1]+" => FAIT"
+        state[0][0] = "azertyuiop"
+      when state[1][0]
         # @scrapping_array << Scrapper.new("Gard", "http://annuaire-des-mairies.com/gard.html", "30")
         @scrapping_array << Scrapper.new("Guyane", "https://www.annuaire-des-mairies.com/guyane.html", "973")
         
-        state[1] = "Emails du Gard => scrapés"
+        state[1][1] = state[1][1][4..-1]+" => FAIT"
+        state[1][0] = "azertyuiop"
 
-      when 3
+      when state[2][0]
         # @scrapping_array << Scrapper.new("Pyrénées-Atlantiques", "http://annuaire-des-mairies.com/pyrenees-atlantiques.html", "64")
         @scrapping_array << Scrapper.new("Martinique", "https://www.annuaire-des-mairies.com/martinique.html", "972")
 
-        state[2] = "Emails des Pyrénées-Atlantiques => scrapés"
+        state[2][1] = state[2][1][4..-1]+" => FAIT"
+        state[2][0] = "azertyuiop"
 
-      when 4
+
+      when state[3][0]
         @dump = Dumper.new(@scrapping_array)
-        state[3] = "CSV créé dans db/townhalls.csv"
-      when 5
-        # Ligne de commande à rajouter
-        state[4] = "Emails envoyés"
+        state[3][1] = state[3][1][4..-1]+" => FAIT"
+        state[3][0] = "azertyuiop"
 
-      when 6
+
+      when state[4][0]
+        # Ligne de commande à rajouter
+        state[4][1] = state[4][1][4..-1]+" => FAIT"
+        state[4][0] = "azertyuiop"
+
+      when state[5][0]
         TwitterBot.new
-        state[5] = "Comptes Twitter rajoutés et follow"
+        state[5][1] = state[5][1][4..-1]+" => FAIT"
+        state[5][0] = "azertyuiop"
 
       when 99
         stay = false
