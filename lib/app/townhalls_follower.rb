@@ -28,19 +28,19 @@ class TwitterBot
 			puts "recherche du compte tweeter de la ville #{row[0]}"
 			search_result = @client.user_search("ville de #{row[0]}")
 			townhall_screen_name = " "
-			if search_result.first
-				puts townhall_screen_name = search_result.first.screen_name
-				if townhall_screen_name != " "
-					row << "@#{townhall_screen_name}"
-				else
-					row << " "
+				if search_result.first
+					puts townhall_screen_name = search_result.first.screen_name
+					if townhall_screen_name != " "
+						row << "@#{townhall_screen_name}"
+					else
+						row << " "
+					end
 				end
-			end
 			CSV.open('db/townhalls.csv', 'wb') do |csv|
-			csv_content.each do |content|
-				csv << content
-			end
- 		end
+				csv_content.each do |content|
+					csv << content
+				end
+ 			end
 		end
 	end
 
@@ -57,4 +57,3 @@ class TwitterBot
 		end
 	end
 end
-
