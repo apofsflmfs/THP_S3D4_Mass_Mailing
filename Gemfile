@@ -1,15 +1,10 @@
 source "https://rubygems.org"
-gem 'google/apis/gmail_v1'
-gem 'googleauth'
-gem 'googleauth/stores/file_token_store'
-gem 'fileutils'
-gem 'gmail'
-gem 'mail'
-gem "google"
 ruby '2.5.1'
+
+gem 'gmail'
 gem 'csv'
-gem "twitter"
-gem "pry"
+gem 'twitter'
+gem 'pry'
 gem "dotenv"
 gem 'nokogiri'
 gem 'bundler'

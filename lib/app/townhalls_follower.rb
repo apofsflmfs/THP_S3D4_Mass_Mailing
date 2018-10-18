@@ -29,7 +29,8 @@ class TwitterBot
 			search_result = @client.user_search("ville de #{row[0]}")
 			townhall_screen_name = " "
 			if search_result.first
-				puts townhall_screen_name = search_result.first.screen_name
+				townhall_screen_name = search_result.first.screen_name
+        puts "Trouvé! => #{townhall_screen_name}"
 				@client.follow(townhall_screen_name)
 			end
 			if townhall_screen_name != " "
