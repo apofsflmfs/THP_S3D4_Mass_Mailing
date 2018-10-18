@@ -6,7 +6,10 @@ gem 'fileutils'
 gem 'gmail'
 gem 'mail'
 gem "google"
+ruby '2.5.1'
+gem 'csv'
 gem "twitter"
 gem "pry"
-gem "json"
-gem "csv"
+gem "dotenv"
+gem 'nokogiri'
+gem 'bundler'
