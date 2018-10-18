@@ -75,7 +75,6 @@ class Index
       when state[3][0]
         @dump = Dumper.new(@scrapping_array)
         state[3][1] = state[3][1][4..-1]+" => FAIT"
-        state[3][0] = "azertyuiop"
 
 
       when state[4][0]
