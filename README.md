@@ -9,7 +9,7 @@ Projet THP mené par le __groupe 3 de Montpellier__ :
 * Clement Baldy
 
 ### Les grandes lignes du programme
-Ce programme a pour objectif d'interpeler les mairies de 3 départements: __Aude__, __Hérault__ et __Gard__.
+Ce programme a pour objectif d'interpeler les mairies de 3 départements: __Pyrénées-Atlantiques__ , __Hérault__ et __Gard__.
 Pour cela il va
 1. Scrapper les emails de toutes les mairies de ces 3 départements
 2. Les stocker dans un CSV bien rangé
@@ -34,20 +34,34 @@ Pour cela il va
 Lancez la commande `$ ruby app.rb`
 Utilisez ensuite l'interface du terminal pour lancer les différents programmes.
 
+### Important !
+
+La fonction "inscrire dans un csv" ne sera réalisée que si au moins un département est scrappé.
+Les fonctions "mails" et "twitter" ne seront réalisée que si le CSV contient au moins un département.
+
+
 ### gem utilisées :
 * Gmail
 * twitter
 * pry
 * csv
+* dotenv
+* nokogiri
+* bundler
 
 
 # Travail réalisé
 
 ### Texte de l'email envoyé:  
-*Texte à compléter*
+
+Bonjour,
+        Je m'appelle Arthur, je suis élève à The Hacking Project, une formation au code gratuite, sans locaux, sans sélection, sans restriction géographique. La pédagogie de notre école est celle du peer-learning, où nous travaillons par petits groupes sur des projets concrets qui font apprendre le code. Le projet du jour est d'envoyer (avec du codage) des emails aux mairies pour qu'ils nous aident à faire de The Hacking Project un nouveau format d'éducation pour tous.
+        Déjà 500 personnes sont passées par The Hacking Project. Est-ce que la mairie de #{row[0]} veut changer le monde avec nous ?
+        Charles, co-fondateur de The Hacking Project pourra répondre à toutes vos questions : 06.95.46.60.80
 
 ### Nombre de mairies contactées:  
-*à compléter*
+
+Le programme contactera en tout 570 mairies dans les 3 departements.
 
 ### Nom du compte Twitter utilisé pour le bot:  
 @ArthurVouloir
