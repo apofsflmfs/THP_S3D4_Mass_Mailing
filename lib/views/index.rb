@@ -78,7 +78,7 @@ class Index
 
 
       when state[4][0]
-        # Ligne de commande à rajouter
+        Mailer.new.send_email
         state[4][1] = state[4][1][4..-1]+" => FAIT"
         state[4][0] = "azertyuiop"
 
