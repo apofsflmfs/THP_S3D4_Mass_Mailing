@@ -63,13 +63,13 @@ class Index
 
       when 4
         @dump = Dumper.new(@scrapping_array)
-        state[3] = "CSV créé"
+        state[3] = "CSV créé dans db/townhalls.csv"
       when 5
         # Ligne de commande à rajouter
-        state[4] = "emails envoyés"
+        state[4] = "Emails envoyés"
 
       when 6
-        # Ligne de commande à rajouter
+        TwitterBot.new
         state[5] = "Comptes Twitter rajoutés et follow"
 
       when 99
