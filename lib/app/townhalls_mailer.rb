@@ -2,23 +2,19 @@ require 'csv'
 require 'gmail'
 require 'dotenv'
 
-
 Dotenv.load
 
-
 class Mailer
-
 	def send_email
-		
 			csv_content = []
 			CSV.foreach('db/townhalls.csv') do |row|
-			csv_content << row
+  			csv_content << row
 			end
 
-		    mail_subject = "Time to join the Futur !!" 
-		    gmail = Gmail.connect!("team.montpellier.thp@gmail.com",ENV['Gmail_password'])
+	    mail_subject = "Time to join the Futur !!" 
+	    gmail = Gmail.connect!("team.montpellier.thp@gmail.com",ENV['Gmail_password'])
 		  
-			  csv_content.each do |row|
+		  csv_content.each do |row|
 				gmail.deliver do
 				  to row[1]
 				  subject mail_subject
