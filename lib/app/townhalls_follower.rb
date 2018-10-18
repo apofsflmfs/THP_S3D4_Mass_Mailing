@@ -5,8 +5,6 @@ require 'dotenv'
 # Appelle le fichier .env grâce à la gem dotenv, et enregistre toutes les données enregistrées dans une hash ENV
 Dotenv.load
 
-
-
 class TwitterBot
 	def initialize
 		@client = Twitter::REST::Client.new do |config|
