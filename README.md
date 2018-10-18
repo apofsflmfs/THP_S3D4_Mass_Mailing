@@ -11,21 +11,21 @@ Projet THP mené par le __groupe 3 de Montpellier__ :
 ### Les grandes lignes du programme
 Ce programme a pour objectif d'interpeler les mairies de 3 départements: __Pyrénées-Atlantiques__ , __Hérault__ et __Gard__.
 Pour cela il va
-1. Scrapper les emails de toutes les mairies de ces 3 départements
-2. Les stocker dans un CSV bien rangé
-3. Envoyer un email à chaque mairie
-4. Trouver les mairies sur Twitter et les follow pour pouvoir les interpeller un peu
+* Scrapper les emails de toutes les mairies de ces 3 départements
+* Les stocker dans un CSV bien rangé
+* Envoyer un email à chaque mairie
+* Trouver les mairies sur Twitter et les follow pour pouvoir les interpeller un peu
 
 
 ### Lancer le programme
-* clonez ou downloadez le repo Github
-* taper les lignes suivantes:
+1. Clonez ou downloadez le repo Github
+2. Taper les lignes suivantes:
 ```$ bundle install```
 ```$ ruby app.rb```
-* ensuite lancer des scrapping (choix 1 à 3)
-* faites un dump des résultats dans un .csv (choix 4)
-* à partir du CSV vous pouvez lancer un mailing (choix 5)
-* ou trouver les comptes Twitter (choix 6) des villes pour les follow (choix 7)
+3. Ensuite lancez des scrapping (choix 1 à 3)
+4. Faites un dump des résultats dans un .csv (choix 4)
+5. A partir du CSV vous pouvez lancer un mailing (choix 5)
+6. Trouvez les comptes Twitter (choix 6) des villes pour les follow (choix 7)
 
 # Arborescence des programmes
 1. Un programme `townhalls_scrapper` va scrapper les emails de toutes les mairies de ces départements
