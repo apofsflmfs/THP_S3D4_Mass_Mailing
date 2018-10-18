@@ -13,14 +13,13 @@ class TwitterBot
 		  config.access_token = ENV['TWITTER_ACCESS_TOKEN']
 		  config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_ACCESS']
 		end
-		search_save_twitter_hundle
 	end
 
-	def search_save_twitter_hundle
+	def find_save_townhall_twitter_handle
 
 		csv_content = []
 
-		CSV.foreach('db/townhalls.csv') do |row|
+		CSV.foreach('townhalls.csv') do |row|
 	 		csv_content << row
 		end
 	
@@ -29,9 +28,7 @@ class TwitterBot
 			search_result = @client.user_search("ville de #{row[0]}")
 			townhall_screen_name = " "
 			if search_result.first
-				townhall_screen_name = search_result.first.screen_name
-        puts "Trouvé! => #{townhall_screen_name}"
-				@client.follow(townhall_screen_name)
+				puts townhall_screen_name = search_result.first.screen_name
 			end
 			if townhall_screen_name != " "
 				row << "@#{townhall_screen_name}"
@@ -39,12 +36,26 @@ class TwitterBot
 				row << " "
 			end
 		end
-		
-		CSV.open('db/townhalls.csv', 'wb') do |csv|
+
+		CSV.open('townhalls.csv', 'wb') do |csv_twitter|
 			csv_content.each do |content|
-				csv << content
+				csv_twitter << content
 			end
  		end
+ 		return csv_content
+	end
+
+	def follow_townhall_twitter(csv_twitter)
+		csv_twitter[3].each do |twitter|
+			begin
+				@client.follow(twitter)
+			rescue
+				puts "Pas de twitter trouvé !"
+			end
+		end
+	end
+
+	def perform
+		follow_townhall_twitter(search_save_twitter_hundle)
 	end
 end
-
