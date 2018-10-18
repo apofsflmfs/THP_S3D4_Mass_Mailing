@@ -43,11 +43,11 @@ Utilisez ensuite l'interface du terminal pour lancer les différents programmes.
 
 # Travail réalisé
 
-###email envoyé:
+###email envoyé:  
 *Texte à compléter*
 
-###nombre de mairies contactées
+###nombre de mairies contactées  
 *à compléter*
 
-###Nom du compte Twitter utilisé pour le bot
+###Nom du compte Twitter utilisé pour le bot  
 @ArthurVouloir
