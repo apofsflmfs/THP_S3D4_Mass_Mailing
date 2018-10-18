@@ -15,7 +15,7 @@ class TwitterBot
 		end
 	end
 
-	def search_save_twitter_hundle
+	def find_save_townhall_twitter_handle
 
 		csv_content = []
 
