@@ -86,7 +86,7 @@ attr_reader :email_hash, :department_name
         puts 
         more_urls = false
       end
-      if page
+      if more_urls
         @department_url_array << other_url
       end
     end
