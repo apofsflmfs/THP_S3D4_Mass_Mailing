@@ -8,8 +8,13 @@ GEM
     csv (3.0.0)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+<<<<<<< HEAD
     dotenv (2.5.0)
     equalizer (0.0.11)
+=======
+    equalizer (0.0.11)
+    google (0.0.2)
+>>>>>>> master
     http (3.3.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -23,8 +28,16 @@ GEM
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.9.0)
+<<<<<<< HEAD
     multipart-post (2.0.0)
     naught (1.1.0)
+=======
+    mini_portile2 (2.3.0)
+    multipart-post (2.0.0)
+    naught (1.1.0)
+    nokogiri (1.8.5)
+      mini_portile2 (~> 2.3.0)
+>>>>>>> master
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -50,6 +63,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   csv
   dotenv
   json
@@ -58,3 +72,18 @@ DEPENDENCIES
 
 BUNDLED WITH
    1.16.2
+=======
+  bundler
+  csv
+  google
+  json
+  nokogiri
+  pry
+  twitter
+
+RUBY VERSION
+   ruby 2.5.1p57
+
+BUNDLED WITH
+   1.16.6
+>>>>>>> master
