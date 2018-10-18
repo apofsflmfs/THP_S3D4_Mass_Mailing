@@ -80,11 +80,10 @@ attr_reader :email_hash, :department_name
     while(more_urls)
       i += 1
       index_to_update = @department_url =~ /.html/
-      puts other_url = @department_url[0...index_to_update]+"-#{i}.html"
       begin
         page = Nokogiri::HTML(open("#{other_url}"))
       rescue
-        puts "404!!"
+        puts 
         more_urls = false
       end
       if page
