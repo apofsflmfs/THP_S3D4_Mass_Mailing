@@ -22,6 +22,10 @@ Pour cela il va
 * taper les lignes suivantes:
 ```$ bundle install```
 ```$ ruby app.rb```
+* ensuite lancer des scrapping (choix 1 à 3)
+* faites un dump des résultats dans un .csv (choix 4)
+* à partir du CSV vous pouvez lancer un mailing (choix 5)
+* ou trouver les comptes Twitter (choix 6) des villes pour les follow (choix 7)
 
 # Arborescence des programmes
 1. Un programme `townhalls_scrapper` va scrapper les emails de toutes les mairies de ces départements
@@ -56,12 +60,12 @@ Les fonctions "mails" et "twitter" ne seront réalisée que si le CSV contient a
 
 Bonjour,
         Je m'appelle Arthur, je suis élève à The Hacking Project, une formation au code gratuite, sans locaux, sans sélection, sans restriction géographique. La pédagogie de notre école est celle du peer-learning, où nous travaillons par petits groupes sur des projets concrets qui font apprendre le code. Le projet du jour est d'envoyer (avec du codage) des emails aux mairies pour qu'ils nous aident à faire de The Hacking Project un nouveau format d'éducation pour tous.
-        Déjà 500 personnes sont passées par The Hacking Project. Est-ce que la mairie de #{row[0]} veut changer le monde avec nous ?
+        Déjà 500 personnes sont passées par The Hacking Project. Est-ce que la mairie de xxxx veut changer le monde avec nous ?
         Charles, co-fondateur de The Hacking Project pourra répondre à toutes vos questions : 06.95.46.60.80
 
 ### Nombre de mairies contactées:  
 
-Le programme contactera en tout 570 mairies dans les 3 departements.
+Le programme a contacté en tout 1243 mairies dans les 3 departements.
 
 ### Nom du compte Twitter utilisé pour le bot:  
 @ArthurVouloir
