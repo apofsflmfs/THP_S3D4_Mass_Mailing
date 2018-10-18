@@ -16,16 +16,18 @@ class Index
 
   def menu
     stay = true
-    state = [[1,""],[2,""],[3,""],[4,""],[5,""],[6,""]]
-    puts state[0][1] = "1-> Scrapper les emails des mairies de l'Hérault?"
-    puts state[1][1] = "2-> Scrapper les emails des mairies du Gard?"
-    puts state[2][1] = "3-> Scrapper les emails des mairies des Pyrénées-Atlantiques?"
+    state = [[1,""],[2,""],[3,""],[4,""],[5,""],[6,""],[7,""]]
+    puts state[0][1] = "1-> SCRAP - Scrapper les emails des mairies de l'Hérault?"
+    puts state[1][1] = "2-> SCRAP - Scrapper les emails des mairies du Gard?"
+    puts state[2][1] = "3-> SCRAP - Scrapper les emails des mairies des Pyrénées-Atlantiques?"
     puts
-    puts state[3][1] = "4-> Inscrire les scrap déjà faits dans un CSV?"
+    puts state[3][1] = "4-> DUMP CSV - Inscrire les scrap déjà faits dans un CSV?"
     puts
-    puts state[4][1] = "5-> Envoyer des emails automatisés aux mairies à partir du CSV créé."
+    puts state[4][1] = "5-> MAILING - Envoyer des emails automatisés aux mairies à partir du CSV créé."
     puts
-    puts state[5][1] = "6-> Compléter le CSV avec les comptes twitter des mairies et les follow? (Nécessite un .env fonctionnel)"
+    puts state[5][1] = "6-> TWITTER - Compléter le CSV avec les comptes twitter des mairies? (Nécessite un .env fonctionnel)"
+    puts state[6][1] = "7-> TWITTER - Follow les comptes des mairies inscrits au CSV? (Nécessite un .env fonctionnel)"
+
     while stay
       system "clear" or system "cls"
       puts "************"
@@ -43,6 +45,7 @@ class Index
       puts state[4][1]
       puts
       puts state[5][1]
+      puts state[6][1]
       puts
       puts "99-> SORTIR"
       puts
@@ -74,7 +77,7 @@ class Index
 
       when state[3][0]
         @dump = Dumper.new(@scrapping_array)
-        state[3][1] = state[3][1][4..-1]+" => FAIT"
+        state[3][1] = state[3][1]+" => FAIT"
 
 
       when state[4][0]
@@ -83,16 +86,20 @@ class Index
         state[4][0] = "azertyuiop"
 
       when state[5][0]
-        TwitterBot.new
-        state[5][1] = state[5][1][4..-1]+" => FAIT"
-        state[5][0] = "azertyuiop"
+        TwitterBot.new #à changer
+        state[5][1] = state[5][1]+" => FAIT"
+
+      when state [6][0]
+        TwitterBot.new #à changer
+        state[6][1] = state[6][1][4..-1]+" => FAIT"
+        state[6][0] = "azertyuiop"
 
       when 99
         stay = false
       else
         puts 
-        puts "***Mauvaise saisie. Merci de recommencer***"
-        puts
+        print "***Mauvaise saisie. Merci de recommencer***"
+        gets.chomp
       end
     end
   end
