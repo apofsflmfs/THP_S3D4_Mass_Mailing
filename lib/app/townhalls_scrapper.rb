@@ -10,7 +10,6 @@ attr_reader :email_hash, :department_name
     @department_num = number
     @department_url_array = []
     @department_url_array << @department_url
-
     list_all_department_url
     perform
   end
@@ -80,6 +79,7 @@ attr_reader :email_hash, :department_name
     while(more_urls)
       i += 1
       index_to_update = @department_url =~ /.html/
+      other_url = "#{@department_url[0...index_to_update]}-#{i}.html"
       begin
         page = Nokogiri::HTML(open("#{other_url}"))
       rescue

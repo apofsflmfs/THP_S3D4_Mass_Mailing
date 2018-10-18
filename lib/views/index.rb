@@ -23,10 +23,10 @@ class Index
     puts
     puts state[3][1] = "4-> DUMP CSV - Inscrire les scrap déjà faits dans un CSV?"
     puts
-    puts state[4][1] = "5-> MAILING - Envoyer des emails automatisés aux mairies à partir du CSV créé."
+    puts state[4][1] = "5-> MAILING via CSV - Envoyer des emails automatisés aux mairies à partir du CSV créé. (Nécessite login/mdp de compte gmail dans un .env)"
     puts
-    puts state[5][1] = "6-> TWITTER - Compléter le CSV avec les comptes twitter des mairies? (Nécessite un .env fonctionnel)"
-    puts state[6][1] = "7-> TWITTER - Follow les comptes des mairies inscrits au CSV? (Nécessite un .env fonctionnel)"
+    puts state[5][1] = "6-> TWITTER via CSV- Compléter le CSV avec les comptes twitter des mairies? (Nécessite des identifiants API Twitter dans un .env)"
+    puts state[6][1] = "7-> TWITTER via CSV- Follow les comptes des mairies inscrits au CSV? (Nécessite des identifiants API Twitter dans un .env)"
 
     while stay
       system "clear" or system "cls"
@@ -54,22 +54,22 @@ class Index
 
       case input
       when state[0][0]
-        # @scrapping_array << Scrapper.new("Herault", "http://annuaire-des-mairies.com/herault.html", "34")
+        @scrapping_array << Scrapper.new("Herault", "http://annuaire-des-mairies.com/herault.html", "34")
         
-        @scrapping_array << Scrapper.new("Réunion", "https://www.annuaire-des-mairies.com/reunion.html", "974")
+        # @scrapping_array << Scrapper.new("Réunion", "https://www.annuaire-des-mairies.com/reunion.html", "974")
 
         state[0][1] = state[0][1][4..-1]+" => FAIT"
         state[0][0] = "azertyuiop"
       when state[1][0]
-        # @scrapping_array << Scrapper.new("Gard", "http://annuaire-des-mairies.com/gard.html", "30")
-        @scrapping_array << Scrapper.new("Guyane", "https://www.annuaire-des-mairies.com/guyane.html", "973")
+        @scrapping_array << Scrapper.new("Gard", "http://annuaire-des-mairies.com/gard.html", "30")
+        # @scrapping_array << Scrapper.new("Guyane", "https://www.annuaire-des-mairies.com/guyane.html", "973")
         
         state[1][1] = state[1][1][4..-1]+" => FAIT"
         state[1][0] = "azertyuiop"
 
       when state[2][0]
-        # @scrapping_array << Scrapper.new("Pyrénées-Atlantiques", "http://annuaire-des-mairies.com/pyrenees-atlantiques.html", "64")
-        @scrapping_array << Scrapper.new("Martinique", "https://www.annuaire-des-mairies.com/martinique.html", "972")
+        @scrapping_array << Scrapper.new("Pyrénées-Atlantiques", "http://annuaire-des-mairies.com/pyrenees-atlantiques.html", "64")
+        # @scrapping_array << Scrapper.new("Martinique", "https://www.annuaire-des-mairies.com/martinique.html", "972")
 
         state[2][1] = state[2][1][4..-1]+" => FAIT"
         state[2][0] = "azertyuiop"
@@ -86,11 +86,11 @@ class Index
         state[4][0] = "azertyuiop"
 
       when state[5][0]
-        TwitterBot.new #à changer
+        TwitterBot.new.search_save_twitter_handle
         state[5][1] = state[5][1]+" => FAIT"
 
       when state [6][0]
-        TwitterBot.new #à changer
+        TwitterBot.new.follow_townhall_twitter
         state[6][1] = state[6][1][4..-1]+" => FAIT"
         state[6][0] = "azertyuiop"
 

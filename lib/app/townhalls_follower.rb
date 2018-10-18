@@ -15,47 +15,51 @@ class TwitterBot
 		end
 	end
 
-	def find_save_townhall_twitter_handle
-
+	def search_save_twitter_handle
 		csv_content = []
 
-		CSV.foreach('townhalls.csv') do |row|
+		CSV.foreach('db/townhalls.csv') do |row|
 	 		csv_content << row
 		end
 	
 		csv_content.map! do |row|
-			puts "recherche du compte tweeter de la ville #{row[0]}"
+			print "recherche du compte Twitter de la ville #{row[0]}"
 			search_result = @client.user_search("ville de #{row[0]}")
 			townhall_screen_name = " "
 			if search_result.first
-				puts townhall_screen_name = search_result.first.screen_name
-			end
-			if townhall_screen_name != " "
-				row << "@#{townhall_screen_name}"
-			else
+				townhall_screen_name = search_result.first.screen_name
+        puts "=> @#{townhall_screen_name}"
+        row << "@#{townhall_screen_name}"
+      else
+        puts "...rien..."
 				row << " "
 			end
 		end
 
-		CSV.open('townhalls.csv', 'wb') do |csv_twitter|
+    csv_content.each do |content|
+      puts content
+    end
+
+		CSV.open('db/townhalls.csv', 'wb') do |csv|
 			csv_content.each do |content|
-				csv_twitter << content
+				csv << content
 			end
  		end
- 		return csv_content
 	end
 
-	def follow_townhall_twitter(csv_twitter)
-		csv_twitter[3].each do |twitter|
-			begin
-				@client.follow(twitter)
-			rescue
-				puts "Pas de twitter trouvé !"
-			end
+	def follow_townhall_twitter
+    csv_content = []
+    CSV.foreach('db/townhalls.csv') do |row|
+      csv_content << row
+    end
+
+		csv_content.each do |content_row|
+      if content_row[3] == " "
+        puts "#{content_row[0]} => pas de compte de Twitter"
+      else
+				@client.follow(content_row[3][1..-1])
+        puts "#{content_row[0]} => ok follow #{content_row[3]}"
+      end
 		end
-	end
-
-	def perform
-		follow_townhall_twitter(search_save_twitter_hundle)
 	end
 end
